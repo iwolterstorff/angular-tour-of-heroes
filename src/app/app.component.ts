@@ -7,11 +7,14 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
+  heroes = HEROES;
+
   title = 'Tour of Heroes';
-  hero: Hero = {
-  	id: 1,
-  	name: 'Mr. Potato Head'
-  };
+  selectedHero: Hero;
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
 
 export class Hero {
@@ -32,5 +35,3 @@ const HEROES: Hero[] = [
 	{id: 19, name: 'Justin'},
 	{id: 20, name: 'Alican'}
 ];
-
-heroes = HEROES;
