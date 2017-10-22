@@ -11,4 +11,6 @@
   </li>
 </ul>
 
-<hero-detail [hero]="selectedHero"></hero-detail>
+<div *ngIf="selectedHero">
+  <hero-detail [hero]="selectedHero"></hero-detail>
+</div>
