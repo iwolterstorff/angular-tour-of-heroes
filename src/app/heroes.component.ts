@@ -4,16 +4,15 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'my-heroes',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [HeroService]
+  providers: []
 })
 
-export class AppComponent implements OnInit {
+export class HeroesComponent implements OnInit {
   heroes: Hero[];
 
-  title = 'Mr. Potato Head';
   selectedHero: Hero;
 
   ngOnInit(): void {
