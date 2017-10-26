@@ -13,15 +13,16 @@ export class HeroService {
 	// 	return Promise.resolve(HEROES);
 	// }
 
-	private heroesUrl = 'api/heroes'; // URL to web api
-
 	constructor(private http: Http) {}
 
+	private heroesUrl = 'api/heroes'; // URL to web api
+
+
 	getHeroes(): Promise<Hero[]> {
-		return this.http.get(this.heroesUrl)
-			.toPromise()
-			.then(response => response.json().data as Hero[])
-			.catch(this.handleError);
+  		return this.http.get(this.heroesUrl)
+             .toPromise()
+             .then(response => response.json().data as Hero[])
+             .catch(this.handleError);
 	}
 
 	private handleError(error: any): Promise<any> {
@@ -38,6 +39,10 @@ export class HeroService {
 	}
 
 	getHero(id: number): Promise<Hero> {
-		return this.getHeroes().then(heroes => heroes.find(hero => hero.id === id));
+		const url = `${this.heroesUrl}/${id}`;
+		return this.http.get(url)
+			.toPromise
+			.then(response => response.json().data as Hero)
+			.catch(this.handleError);
 	}
 }
